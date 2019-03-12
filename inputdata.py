@@ -3,12 +3,14 @@ import cv2
 import numpy as np
 
 PATH = '/home/cs/work/football_match_mot/siamese_network/players_data/'
-VIDEOS = ['fifa1/',
-          'fifa2/',
-          'fifa3/',
-          'fifa4/',
-          'fifa5/',
-          'fifa2/']
+VIDEOS = ['ISSIA/',
+          'video001/',
+          'video002/',
+          'video003/',
+          'video004/',
+          'video005/',
+          'video006/',
+          ]
 
 
 class DataSet:
@@ -50,9 +52,8 @@ class Player:
             pics = os.listdir(path + '/' + i)
             for pic in pics:
                 image = cv2.imread(path + '/' + i + '/' + pic) / 255.
-                # image = image.reshape(-1) / 255.0
                 self.all_x.append(image)
-                self.all_y.append(path[-2:] + i)
+                self.all_y.append(path[-4:] + i)
 
 
 
