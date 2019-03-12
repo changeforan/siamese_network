@@ -1,0 +1,5 @@
+players_data/
+model/
+checkpoint
+embed.txt
+*.pyc
