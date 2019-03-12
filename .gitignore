@@ -1,5 +1,7 @@
 players_data/
+!players_data/KEEP
 model/
+!model/KEEP
 checkpoint
 embed.txt
 *.pyc
