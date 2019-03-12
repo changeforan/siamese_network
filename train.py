@@ -1,9 +1,7 @@
 
-""" Siamese implementation using Tensorflow with MNIST example.
+""" Siamese implementation using Tensorflow
 This siamese network embeds a 28x28 image (a point in 784D)
 into a point in 2D.
-
-By Youngwook Paul Kwon (young at berkeley.edu)
 """
 
 from __future__ import absolute_import
@@ -11,12 +9,12 @@ from __future__ import division
 from __future__ import print_function
 
 
-#import system things
+# import system things
 import tensorflow as tf
 import numpy as np
 import os
 
-#import helpers
+# import helpers
 import inference
 from inputdata import Player
 
@@ -26,14 +24,14 @@ players = Player()
 sess = tf.InteractiveSession()
 
 # setup siamese network
-siamese = inference.siamese()
+siamese = inference.Siamese()
 train_step = tf.train.GradientDescentOptimizer(0.01).minimize(siamese.loss)
 saver = tf.train.Saver()
 tf.initialize_all_variables().run()
 
-# if you just want to load a previously trainmodel?
+# if you just want to load a previously train model?
 load = False
-model_ckpt = './model.meta'
+model_ckpt = 'model/model.meta'
 if os.path.isfile(model_ckpt):
     input_var = None
     while input_var not in ['yes', 'no']:
@@ -42,7 +40,8 @@ if os.path.isfile(model_ckpt):
         load = True
 
 # start training
-if load: saver.restore(sess, './model')
+if load:
+    saver.restore(sess, 'model/model')
 
 for step in range(50000):
     batch_x1, batch_y1 = players.train.next_batch(500)
@@ -59,11 +58,11 @@ for step in range(50000):
         quit()
 
     if step % 100 == 0:
-        print ('step %d: loss %.3f' % (step, loss_v))
+        print('step %d: loss %.3f' % (step, loss_v))
 
     if step % 10000 == 0 and step > 0:
 
-        saver.save(sess, './model')
+        saver.save(sess, 'model/model')
 
 
 
