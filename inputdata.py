@@ -2,7 +2,7 @@ import os
 import cv2
 import numpy as np
 
-PATH = '/home/cs/work/siamese/players_data/'
+PATH = '/home/cs/work/football_match_mot/siamese_network/players_data/'
 VIDEOS = ['fifa1/',
           'fifa2/',
           'fifa3/',
