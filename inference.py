@@ -4,8 +4,8 @@ import tensorflow as tf
 class Siamese:
     # Create model
     def __init__(self):
-        self.x1 = tf.placeholder(tf.float32, [None, 784 * 3])
-        self.x2 = tf.placeholder(tf.float32, [None, 784 * 3])
+        self.x1 = tf.placeholder(tf.float32, [None, 28, 28, 3])
+        self.x2 = tf.placeholder(tf.float32, [None, 28, 28, 3])
 
         with tf.variable_scope("siamese") as scope:
             self.o1 = self.conv_model(self.x1)

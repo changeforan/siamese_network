@@ -5,3 +5,4 @@ model/
 checkpoint
 embed.txt
 *.pyc
+.idea/
