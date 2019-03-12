@@ -44,8 +44,8 @@ if load:
     saver.restore(sess, 'model/model')
 
 for step in range(50000):
-    batch_x1, batch_y1 = players.train.next_batch(500)
-    batch_x2, batch_y2 = players.train.next_batch(500)
+    batch_x1, batch_y1 = players.train.next_batch(50)
+    batch_x2, batch_y2 = players.train.next_batch(50)
     batch_y = [float(i[0] == i[1]) for i in zip(batch_y1, batch_y2)]
 
     _, loss_v = sess.run([train_step, siamese.loss], feed_dict={
