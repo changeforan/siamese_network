@@ -1,7 +1,7 @@
 #import system things
 import tensorflow as tf
 import os
-
+import numpy as np
 #import helpers
 import inference
 from inputdata import Player
@@ -18,6 +18,6 @@ if __name__ == "__main__":
     x = players.test.next_batch(50)[0]
     embed = siamese.o1.eval({siamese.x1: x})
     embed = embed.reshape([-1, 2])
-    x = x * 255
+    x = np.array(x).reshape([-1, 128, 128, 3]) * 255
     x = x.astype(int)
     visualize.visualize(embed, x)
