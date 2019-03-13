@@ -16,15 +16,6 @@ class Siamese:
         self.y_ = tf.placeholder(tf.float32, [None])
         self.loss = self.loss_with_spring()
 
-    # def network(self, x):
-    #     weights = []
-    #     fc1 = self.fc_layer(x, 1024, "fc1")
-    #     ac1 = tf.nn.relu(fc1)
-    #     fc2 = self.fc_layer(ac1, 1024, "fc2")
-    #     ac2 = tf.nn.relu(fc2)
-    #     fc3 = self.fc_layer(ac2, 2, "fc3")
-    #     return fc3
-    #
     def fc_layer(self, bottom, n_weight, name):
         assert len(bottom.get_shape()) == 2
         n_prev_weight = bottom.get_shape()[1]

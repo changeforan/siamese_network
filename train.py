@@ -25,7 +25,7 @@ sess = tf.InteractiveSession()
 
 # setup siamese network
 siamese = inference.Siamese()
-train_step = tf.train.GradientDescentOptimizer(0.01).minimize(siamese.loss)
+train_step = tf.train.GradientDescentOptimizer(0.005).minimize(siamese.loss)
 saver = tf.train.Saver()
 tf.initialize_all_variables().run()
 
