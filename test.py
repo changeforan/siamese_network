@@ -17,7 +17,7 @@ if __name__ == "__main__":
         saver.restore(sess, 'model/model')
     x = players.test.next_batch(50)[0]
     embed = siamese.o1.eval({siamese.x1: x})
-    # embed = embed.reshape([-1, 2])
+    embed = embed.reshape([-1, 2])
     x = np.array(x).reshape([-1, 128, 128, 3]) * 255
     x = x.astype(int)
     visualize.visualize(embed, x)
