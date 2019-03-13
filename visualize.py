@@ -26,7 +26,7 @@ def visualize(embed, x_test):
         shown_images = np.r_[shown_images, [feat[i]]]
         patch_to_color = x_test[i]
         imagebox = offsetbox.AnnotationBbox(
-            offsetbox.OffsetImage(patch_to_color, zoom=0.5, cmap=plt.cm.gray_r),
+            offsetbox.OffsetImage(patch_to_color, zoom=0.05, cmap=plt.cm.gray_r),
             xy=feat[i], frameon=False
         )
         ax.add_artist(imagebox)
