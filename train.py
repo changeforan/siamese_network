@@ -60,7 +60,7 @@ for step in range(50000):
     if step % 100 == 0:
         print('step %d: loss %.3f' % (step, loss_v))
 
-    if step % 10000 == 0 and step > 0:
+    if step % 1000 == 0 and step > 0:
 
         saver.save(sess, 'model/model')
 
