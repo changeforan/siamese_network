@@ -15,5 +15,5 @@ if __name__ == "__main__":
     model_ckpt = 'model/model.meta'
     if os.path.isfile(model_ckpt):
         saver.restore(sess, 'model/model')
-    embed = siamese.o1.eval({siamese.x1: players.test.images})
+    embed = siamese.o1.eval({siamese.x1: players.test.next_batch(50)})
     embed.tofile('embed.txt')
