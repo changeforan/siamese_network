@@ -21,7 +21,6 @@ class DataSet:
         self.length = len(y)
 
     def next_batch(self, n):
-        print(len(self.images))
         batch_index = np.random.choice(self.length, size=n, replace=False)
         batch_x = [self.images[i] for i in batch_index]
         batch_y = [self.labels[i] for i in batch_index]

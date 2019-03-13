@@ -43,9 +43,9 @@ if os.path.isfile(model_ckpt):
 if load:
     saver.restore(sess, 'model/model')
 
-for step in range(50000):
-    batch_x1, batch_y1 = players.train.next_batch(100)
-    batch_x2, batch_y2 = players.train.next_batch(100)
+for step in range(100000):
+    batch_x1, batch_y1 = players.train.next_batch(120)
+    batch_x2, batch_y2 = players.train.next_batch(120)
     batch_y = [float(i[0] == i[1]) for i in zip(batch_y1, batch_y2)]
 
     _, loss_v = sess.run([train_step, siamese.loss], feed_dict={
@@ -60,7 +60,7 @@ for step in range(50000):
     if step % 100 == 0:
         print('step %d: loss %.3f' % (step, loss_v))
 
-    if step % 1000 == 0 and step > 0:
+    if step % 10000 == 0 and step > 0:
 
         saver.save(sess, 'model/model')
 
