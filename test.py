@@ -5,7 +5,7 @@ import os
 #import helpers
 import inference
 from inputdata import Player
-
+import visualize
 
 if __name__ == "__main__":
     players = Player()
@@ -15,5 +15,9 @@ if __name__ == "__main__":
     model_ckpt = 'model/model.meta'
     if os.path.isfile(model_ckpt):
         saver.restore(sess, 'model/model')
-    embed = siamese.o1.eval({siamese.x1: players.test.next_batch(50)[0]})
-    embed.tofile('embed.txt')
+    x = players.test.next_batch(50)[0]
+    embed = siamese.o1.eval({siamese.x1: x})
+    embed = embed.reshape([-1, 2])
+    x = x * 255
+    x = x.astype(int)
+    visualize.visualize(embed, x)
