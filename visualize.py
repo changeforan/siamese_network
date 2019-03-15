@@ -33,7 +33,7 @@ def visualize(embed, x_test):
 
     plt.axis([ax_min[0], ax_max[0], ax_min[1], ax_max[1]])
     # plt.xticks([]), plt.yticks([])
-    plt.title('Embedding from the last layer of the network')
+    plt.title('')
     plt.savefig('result.jpg')
 
 
