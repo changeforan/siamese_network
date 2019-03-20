@@ -90,6 +90,6 @@ class Siamese:
 
             net = tf.contrib.layers.flatten(net)
 
-            net = self.fc_layer(net, 2, "out")
+            #net = self.fc_layer(net, 2, "out")
 
         return net
